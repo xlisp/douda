@@ -227,7 +227,7 @@ def train_speech_to_text_network():
     gradient = optimizer.compute_gradients(loss, var_list=var_list)
     optimizer_op = optimizer.apply_gradients(gradient)
  
-    with tf.Session() as sess:
+    with tf.Session(config=tf.ConfigProto(device_count={'gpu':0})) as sess:
         sess.run(tf.global_variables_initializer())
  
         saver = tf.train.Saver(tf.global_variables())
@@ -256,7 +256,7 @@ def speech_to_text(wav_file):
     logit = speech_to_text_network()
  
     saver = tf.train.Saver()
-    with tf.Session() as sess:
+    with tf.Session(config=tf.ConfigProto(device_count={'gpu':0})) as sess:
         saver.restore(sess, tf.train.latest_checkpoint('.'))
  
         decoded = tf.transpose(logit, perm=[1, 0, 2])
