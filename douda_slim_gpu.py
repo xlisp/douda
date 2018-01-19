@@ -1,5 +1,4 @@
 #-*-coding:utf-8 -*-
-
 import tensorflow as tf  # 0.12
 import numpy as np
 import os
@@ -69,12 +68,12 @@ labels_vector = [ list(map(to_num, label)) for label in labels]
 label_max_len = np.max([len(label) for label in labels_vector])
 print('最长句子的字数:', label_max_len)
  
-wav_max_len = 0  # 673
-for wav in wav_files:
-    wav, sr = librosa.load(wav, mono=True)
-    mfcc = np.transpose(librosa.feature.mfcc(wav, sr), [1,0])
-    if len(mfcc) > wav_max_len:
-        wav_max_len = len(mfcc)
+wav_max_len = 673
+#for wav in wav_files:
+#    wav, sr = librosa.load(wav, mono=True)
+#    mfcc = np.transpose(librosa.feature.mfcc(wav, sr), [1,0])
+#    if len(mfcc) > wav_max_len:
+#        wav_max_len = len(mfcc)
 print("最长的语音:", wav_max_len)
  
 batch_size = 16
