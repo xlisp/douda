@@ -43,7 +43,6 @@ alias pyweb=' jupyter notebook --ip="*" --no-browser '
 ## .e.g: ➜  learn git:(master) ✗ jupyter notebook --ip="*" --no-browser
 
 
-alias proxy_clj=' ssh -p 26401 -N -R 8888:localhost:9999 clojure@67.216.200.53 '
 
 alias http='  python -m http.server 2222 '
 alias e=' emacs  -q -l ~/clojure_emacs/init.el '
