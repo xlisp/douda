@@ -1,4 +1,7 @@
 # Hylang Lisp 的语音识别
+
+* douda.py跑在CPU上正常,但是在GPU上跑,是报错的: douda_gpu_erro.txt
+
 ### 测试的标准: anaconda3可以跑下面这段代码, 先安装anaconda3,再安装cuda
 
 ```python
@@ -18,7 +21,7 @@ print(sess.run(c))
 
 ```
 
-### zshrc
+### zshrc: 如果CUDA找不到PATH里面有anaconda3,就会去找系统自带的python，所以只有系统自带的python可以用GPU跑，而anaconda3不能(只能跑在CPU上)
 
 ```bash
 

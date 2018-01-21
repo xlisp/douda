@@ -1,0 +1,70 @@
+➜  douda git:(master) ✗ diff douda_test.py douda.py
+72,77c72,77
+< wav_max_len = 673
+< #for wav in wav_files:
+< #    wav, sr = librosa.load(wav, mono=True)
+< #    mfcc = np.transpose(librosa.feature.mfcc(wav, sr), [1,0])
+< #    if len(mfcc) > wav_max_len:
+< #        wav_max_len = len(mfcc)
+---
+> wav_max_len = 0  # 673
+> for wav in wav_files:
+>     wav, sr = librosa.load(wav, mono=True)
+>     mfcc = np.transpose(librosa.feature.mfcc(wav, sr), [1,0])
+>     if len(mfcc) > wav_max_len:
+>         wav_max_len = len(mfcc)
+➜  douda git:(master) ✗
+➜  douda git:(master) ✗ python douda_test.py
+样本数: 8911
+词汇表大小: 2666
+最长句子的字数: 75
+最长的语音: 673
+Traceback (most recent call last):
+  File "/home/hylisp/anaconda3/lib/python3.5/site-packages/tensorflow/python/framework/op_def_library.py", line 510, in _apply_op_helper
+    preferred_dtype=default_dtype)
+  File "/home/hylisp/anaconda3/lib/python3.5/site-packages/tensorflow/python/framework/ops.py", line 926, in internal_convert_to_tensor
+    ret = conversion_func(value, dtype=dtype, name=name, as_ref=as_ref)
+  File "/home/hylisp/anaconda3/lib/python3.5/site-packages/tensorflow/python/framework/constant_op.py", line 229, in _constant_tensor_conversion_function
+    return constant(v, dtype=dtype, name=name)
+  File "/home/hylisp/anaconda3/lib/python3.5/site-packages/tensorflow/python/framework/constant_op.py", line 208, in constant
+    value, dtype=dtype, shape=shape, verify_shape=verify_shape))
+  File "/home/hylisp/anaconda3/lib/python3.5/site-packages/tensorflow/python/framework/tensor_util.py", line 392, in make_tensor_proto
+    _GetDenseDimensions(values)))
+ValueError: Argument must be a dense tensor: range(0, 2) - got shape [2], but wanted [].
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/hylisp/anaconda3/lib/python3.5/site-packages/tensorflow/python/framework/op_def_library.py", line 524, in _apply_op_helper
+    values, as_ref=input_arg.is_ref).dtype.name
+  File "/home/hylisp/anaconda3/lib/python3.5/site-packages/tensorflow/python/framework/ops.py", line 926, in internal_convert_to_tensor
+    ret = conversion_func(value, dtype=dtype, name=name, as_ref=as_ref)
+  File "/home/hylisp/anaconda3/lib/python3.5/site-packages/tensorflow/python/framework/constant_op.py", line 229, in _constant_tensor_conversion_function
+    return constant(v, dtype=dtype, name=name)
+  File "/home/hylisp/anaconda3/lib/python3.5/site-packages/tensorflow/python/framework/constant_op.py", line 208, in constant
+    value, dtype=dtype, shape=shape, verify_shape=verify_shape))
+  File "/home/hylisp/anaconda3/lib/python3.5/site-packages/tensorflow/python/framework/tensor_util.py", line 392, in make_tensor_proto
+    _GetDenseDimensions(values)))
+ValueError: Argument must be a dense tensor: range(0, 2) - got shape [2], but wanted [].
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "douda_test.py", line 250, in <module>
+    train_speech_to_text_network()
+  File "douda_test.py", line 219, in train_speech_to_text_network
+    logit = speech_to_text_network()
+  File "douda_test.py", line 171, in speech_to_text_network
+    out = conv1d_layer(input_tensor=X, size=1, dim=n_dim, activation='tanh', scale=0.14, bias=False)
+  File "douda_test.py", line 123, in conv1d_layer
+    mean, variance = tf.nn.moments(out, axes=range(len(out.get_shape()) - 1))
+  File "/home/hylisp/anaconda3/lib/python3.5/site-packages/tensorflow/python/ops/nn_impl.py", line 618, in moments
+    mean = math_ops.reduce_mean(y, axes, keep_dims=True, name="mean")
+  File "/home/hylisp/anaconda3/lib/python3.5/site-packages/tensorflow/python/ops/math_ops.py", line 1411, in reduce_mean
+    name=name)
+  File "/home/hylisp/anaconda3/lib/python3.5/site-packages/tensorflow/python/ops/gen_math_ops.py", line 2568, in _mean
+    keep_dims=keep_dims, name=name)
+  File "/home/hylisp/anaconda3/lib/python3.5/site-packages/tensorflow/python/framework/op_def_library.py", line 528, in _apply_op_helper
+    (input_name, err))
+ValueError: Tried to convert 'reduction_indices' to a tensor and failed. Error: Argument must be a dense tensor: range(0, 2) - got shape [2], but wanted [].
+➜  douda git:(master) ✗
