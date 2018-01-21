@@ -1,4 +1,4 @@
-# Hylang Lisp 的语音识别
+# Hylang Lisp 的语音识别: 先py跑起来,用hylangλ化,就像Clojureλ化Spark和安卓,前端一样,任何领域的Lispλ化
 
 * douda.py跑在CPU上正常,但是在GPU上跑,是报错的: douda_gpu_erro.txt
 
