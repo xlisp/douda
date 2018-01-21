@@ -1,8 +1,9 @@
 # Hylang Lisp 的语音识别: 先py跑起来,用hylangλ化,就像Clojureλ化Spark和安卓,前端一样,任何领域的Lispλ化
 
 * douda.py跑在CPU上正常,但是在GPU上跑,是报错的: douda_gpu_erro.txt
+* 只要能描述清楚了(文学编程的最高境界)，就能lispλ化=>只要特征能描述清楚了,就能hylisp可微分化
 
-### 测试的标准: anaconda3可以跑下面这段代码, 先安装anaconda3,再安装cuda
+### 测试的标准: anaconda3可以跑下面这段代码, 先安装anaconda3,再安装cuda(其实就是先有anaconda3的PATH变量,CUDA能找到就行了)
 
 ```python
 
