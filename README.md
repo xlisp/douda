@@ -1,4 +1,5 @@
-# 测试的标准: anaconda3可以跑下面这段代码, 先安装anaconda3,再安装cuda
+# Hylang Lisp 的语音识别
+### 测试的标准: anaconda3可以跑下面这段代码, 先安装anaconda3,再安装cuda
 
 ```python
 
@@ -17,7 +18,7 @@ print(sess.run(c))
 
 ```
 
-# zshrc
+### zshrc
 
 ```bash
 
