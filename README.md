@@ -2,6 +2,7 @@
 
 * douda.py跑在CPU上正常,但是在GPU上跑,是报错的: douda_gpu_erro.txt
 * 只要能描述清楚了(文学编程的最高境界)，就能lispλ化=>只要特征能描述清楚了,就能hylisp可微分化
+* Clojure和Java的互操作,迁移到Hylisp和Python的互操作: `test_hy.hy`编译生成pyc`test_hy.pyc`
 
 ### 测试的标准: anaconda3可以跑下面这段代码, 先安装anaconda3,再安装cuda(其实就是先有anaconda3的PATH变量,CUDA能找到就行了)
 
