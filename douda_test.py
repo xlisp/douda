@@ -77,7 +77,7 @@ wav_max_len = 673
 #        wav_max_len = len(mfcc)
 print("最长的语音:", wav_max_len)
  
-batch_size = 16
+batch_size = 1
 n_batch = len(wav_files) // batch_size
  
 # 获得一个batch
